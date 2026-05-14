@@ -1,0 +1,49 @@
+---
+const { activePage } = Astro.props;
+const links = [
+  { label: 'home', href: '/' },
+  { label: 'projects', href: '/projects' },
+  { label: 'about-me', href: '/about-me' },
+  { label: 'contacts', href: '/contacts' },
+];
+---
+
+<header style="display:flex;justify-content:space-between;align-items:center;padding:32px 0 8px;width:100%;position:sticky;top:0;z-index:100;background:rgba(40,44,51,0.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
+  <a href="/" style="display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;">
+    <!-- LogoMark -->
+    <svg width="16" height="16" viewBox="0 0 52 52" fill="#fff">
+      <path d="M 39 0 L 26 0 L 26 13 L 13 13 L 0 13 L 0 26 L 0 39 L 0 52 L 13 52 L 26 52 L 26 39 L 39 39 L 52 39 L 52 26 L 52 13 L 52 0 L 39 0 Z M 13 39 L 26 39 L 26 26 L 39 26 L 39 13 L 26 13 L 26 26 L 13 26 L 13 39 Z" fill-rule="evenodd"/>
+    </svg>
+    <span style="font-size:16px;font-weight:700;color:#fff;">jurayak</span>
+  </a>
+
+  <nav style="display:flex;gap:28px;align-items:center;">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={['nav-link', activePage === link.label ? 'active' : '']}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .nav-link {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ABB2BF;
+    text-decoration: none;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+  }
+  .nav-link:hover {
+    color: #fff;
+  }
+  .nav-link.active {
+    color: #fff;
+    border-bottom: 1px solid #C778DD;
+  }
+</style>

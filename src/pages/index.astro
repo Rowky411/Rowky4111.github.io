@@ -1,0 +1,408 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredProjects = [
+  {
+    title: "Imagitar",
+    desc: "AI-powered multimedia editing platform supporting image, video, and presentation workflows.",
+    tags: ["NestJS", "React", "PostgreSQL", "TypeScript", "AI APIs"],
+    color: "#1a1f2e",
+    githubUrl: "",
+    liveUrl: "https://imagitar.com/",
+  },
+  {
+    title: "Fluxturn",
+    desc: "Open-source AI workflow automation platform with node-based visual editor and real-time execution.",
+    tags: ["NestJS", "React", "Redis", "Docker", "BullMQ"],
+    color: "#1f2a1a",
+    githubUrl: "",
+    liveUrl: "https://fluxturn.com/",
+  },
+  {
+    title: "StreamTube",
+    desc: "Full-featured video sharing platform built with Django and RESTful APIs for streaming and user management.",
+    tags: ["Python", "Django", "SQLite", "Docker"],
+    color: "#2a1a1f",
+    githubUrl: "https://github.com/Rowky411/StreamTube",
+    liveUrl: "",
+  },
+  {
+    title: "Collaborative-Team-Hub",
+    desc: "A full-stack monorepo app for team collaboration — workspaces, goals, kanban boards, announcements, analytics, and real-time updates.",
+    tags: ["Next.js 14", "Node.js", "PostgreSQL", "Prisma", "Socket.io"],
+    color: "#1a2226",
+    githubUrl: "",
+    liveUrl: "https://determined-hope-production-9d55.up.railway.app",
+  },
+];
+
+const skillGroups = [
+  { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "C++"] },
+  { label: "Frontend", items: ["React.js", "HTML5", "CSS3", "TailwindCSS"] },
+  { label: "Backend", items: ["NestJS", "Django", "PHP", "REST API"] },
+  { label: "DevOps", items: ["Git", "GitHub", "Docker", "Linux"] },
+];
+---
+
+<Layout title="Jurayak Kader — Software Engineer" activePage="home">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-label">
+        Jurayak is a <span class="accent">full-stack engineer</span> and <span class="accent">AI integration specialist</span>
+      </div>
+      <h1 class="hero-title">
+        He crafts<br />
+        <span class="accent">scalable</span> and<br />
+        intelligent apps
+      </h1>
+      <p class="hero-desc">
+        Motivated software engineer with hands-on experience in full-stack development, AI integration, and workflow automation.
+      </p>
+      <div class="hero-btns">
+        <a href="/projects" class="btn">View projects -&gt;</a>
+        <a href="https://github.com/Rowky411" target="_blank" rel="noopener" class="btn">Github &lt;~&gt;</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-area">
+      <!-- decorative overlapping rectangles -->
+      <div class="deco-rect deco-rect-1"></div>
+      <div class="deco-rect deco-rect-2"></div>
+
+      <!-- tech graphic: code terminal -->
+      <div class="hero-photo tech-terminal">
+        <div class="term-bar">
+          <span class="term-dot td-red"></span>
+          <span class="term-dot td-yellow"></span>
+          <span class="term-dot td-green"></span>
+          <span class="term-title">jurayak.ts</span>
+        </div>
+        <div class="term-body">
+          <div class="cl"><span class="ck">const</span> <span class="cv">engineer</span> <span class="co">=</span> <span class="cb">&#123;</span></div>
+          <div class="cl i1"><span class="cp">name</span><span class="co">:</span> <span class="cs">'Jurayak'</span><span class="co">,</span></div>
+          <div class="cl i1"><span class="cp">role</span><span class="co">:</span> <span class="cs">'Full-Stack Dev'</span><span class="co">,</span></div>
+          <div class="cl i1"><span class="cp">stack</span><span class="co">:</span> <span class="cb">[</span><span class="cs">'React'</span><span class="co">,</span> <span class="cs">'NestJS'</span><span class="co">,</span> <span class="cs">'AI'</span><span class="cb">]</span><span class="co">,</span></div>
+          <div class="cl i1"><span class="cp">available</span><span class="co">:</span> <span class="ck">true</span></div>
+          <div class="cl"><span class="cb">&#125;</span></div>
+          <div class="cl">&nbsp;</div>
+          <div class="cl"><span class="cc">// currently shipping</span></div>
+          <div class="cl"><span class="cf">engineer</span><span class="co">.</span><span class="cf">build</span><span class="cb">(</span><span class="cs">'portfolio'</span><span class="cb">)</span></div>
+          <div class="cl">&nbsp;</div>
+          <div class="cl"><span class="cc">// output</span></div>
+          <div class="cl"><span class="cout">&gt; Building scalable apps...</span></div>
+          <div class="cl"><span class="cout">&gt; Integrating AI workflows...</span></div>
+          <div class="cl"><span class="cout">&gt; <span class="cok">Done.</span> Ship it. <span class="cursor">▌</span></span></div>
+        </div>
+      </div>
+
+      <!-- dot grid bottom-right -->
+      <div class="hero-dots-deco">
+        <div class="dot-grid" style="grid-template-columns:repeat(5,5px);gap:8px;">
+          {Array.from({length:25}).map((_,i) => (
+            <div class="dot" style="width:5px;height:5px;background:#ABB2BF;"></div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">projects</span>
+    <div class="line"></div>
+  </div>
+  <div class="projects-grid">
+    {featuredProjects.map(p => (
+      <div class="project-card">
+        <div class="card-img" style={`background:${p.color};`}>
+          <span class="card-title-bg">{p.title}</span>
+          <div class="card-dots">
+            <div class="dot-grid" style="grid-template-columns:repeat(4,4px);gap:6px;">
+              {Array.from({length:12}).map((_,i) => (
+                <div class="dot" style="width:4px;height:4px;background:#ABB2BF;"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div class="card-tags">
+          {p.tags.map(t => <span class="tag">{t}</span>)}
+        </div>
+        <div class="card-body">
+          <div class="card-name">{p.title}</div>
+          <div class="card-desc">{p.desc}</div>
+          <div class="card-actions">
+            {p.githubUrl && <a href={p.githubUrl} class="btn" target="_blank" rel="noopener">Github &lt;~&gt;</a>}
+            {p.liveUrl && <a href={p.liveUrl} class="btn" target="_blank" rel="noopener">Live |&gt;</a>}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="view-all-wrap">
+    <a href="/projects" class="view-all-link">View all projects ~~&gt;</a>
+  </div>
+
+  <!-- Skills -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">skills</span>
+    <div class="line"></div>
+  </div>
+  <div class="skills-row">
+    <div class="skills-dots">
+      <div class="dot-grid" style="grid-template-columns:repeat(5,6px);gap:10px;">
+        {Array.from({length:25}).map((_,i) => (
+          <div class="dot" style="width:6px;height:6px;background:#ABB2BF;"></div>
+        ))}
+      </div>
+    </div>
+    <div class="skills-grid">
+      {skillGroups.map(s => (
+        <div class="skill-box">
+          <div class="skill-label">{s.label}</div>
+          <div class="skill-items">
+            {s.items.map(item => (
+              <div class="skill-item">
+                <span class="accent">&#9658;</span>{item}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- About me -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">about-me</span>
+    <div class="line"></div>
+  </div>
+  <div class="about-row">
+    <div class="about-text">
+      <p class="about-para">
+        Hello, i'm Jurayak!<br /><br />
+        I'm a software engineer based in Dhaka, Bangladesh. I build full-stack web applications at the intersection of user-centric design and scalable technical solutions.<br /><br />
+        Previously worked at <span class="accent">Info Inlet</span> as a Software Engineer (until April 2026), contributing to production services with NestJS and React.
+      </p>
+      <a href="/about-me" class="btn">Read more -&gt;</a>
+    </div>
+    <div class="about-photo-wrap">
+      <!-- dot grid decoration behind, top-left -->
+      <div class="about-photo-dots">
+        <div class="dot-grid" style="grid-template-columns:repeat(3,6px);gap:10px;">
+          {Array.from({length:9}).map((_,i) => (
+            <div class="dot" style="width:6px;height:6px;background:#ABB2BF;"></div>
+          ))}
+        </div>
+      </div>
+      <img src="/1-removebg-preview.png" alt="Jurayak Kader" class="about-photo-img" />
+      <div class="photo-line"></div>
+    </div>
+  </div>
+
+  <!-- Contacts -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">contacts</span>
+    <div class="line"></div>
+  </div>
+  <div class="contacts-row">
+    <p class="contacts-desc">
+      I'm interested in freelance opportunities and full-time roles. If you have a project, question, or just want to say hi — don't hesitate to reach out.
+    </p>
+    <div class="contact-card">
+      <div class="contact-card-title">Message me here</div>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#C778DD"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="contact-text">jurayakkader.uiu@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#C778DD"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span class="contact-text">+880-1755739711</span>
+      </div>
+      <div class="contact-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#C778DD"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span class="contact-text">Dhaka, Bangladesh</span>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .accent { color: #C778DD; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+  }
+  .hero-content { flex: 1; min-width: 280px; position: relative; }
+  .hero-label { font-size: 14px; color: #ABB2BF; margin-bottom: 14px; letter-spacing: 1px; }
+  .hero-title { font-size: 52px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 28px; }
+  .hero-desc { font-size: 14px; color: #ABB2BF; margin-bottom: 32px; line-height: 1.8; max-width: 420px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* Hero photo area */
+  .hero-photo-area {
+    flex: 0 0 360px;
+    position: relative;
+    height: 480px;
+  }
+
+  /* decorative overlapping rectangles (top-left of photo area) */
+  .deco-rect {
+    position: absolute;
+    border: 1px solid #C778DD;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .deco-rect-1 {
+    width: 120px;
+    height: 100px;
+    top: 32px;
+    left: 0px;
+  }
+  .deco-rect-2 {
+    width: 80px;
+    height: 68px;
+    top: 56px;
+    left: 48px;
+    background: rgba(199,120,221,0.06);
+  }
+
+  /* tech terminal graphic */
+  .hero-photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 340px;
+    z-index: 2;
+  }
+  .tech-terminal {
+    border: 1px solid #4B5362;
+    background: #1a1d23;
+    font-size: 13px;
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
+  }
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #21252b;
+    border-bottom: 1px solid #4B5362;
+  }
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .td-red    { background: #e06c75; }
+  .td-yellow { background: #e5c07b; }
+  .td-green  { background: #98c379; }
+  .term-title { font-size: 11px; color: #ABB2BF; margin-left: 6px; }
+  .term-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; line-height: 1.7; }
+  .cl { display: flex; flex-wrap: wrap; gap: 4px; align-items: baseline; white-space: pre; }
+  .i1 { padding-left: 18px; }
+  .ck  { color: #c678dd; }
+  .cv  { color: #61afef; }
+  .co  { color: #abb2bf; }
+  .cb  { color: #d19a66; }
+  .cp  { color: #e06c75; }
+  .cs  { color: #98c379; }
+  .cf  { color: #61afef; }
+  .cc  { color: #5c6370; font-style: italic; }
+  .cout { color: #abb2bf; }
+  .cok  { color: #98c379; }
+  .cursor { color: #c678dd; animation: blink 1s step-end infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* dot grid — bottom-right */
+  .hero-dots-deco {
+    position: absolute;
+    bottom: 40px;
+    right: -12px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+
+  /* Projects grid */
+  .projects-grid { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+  .project-card {
+    border: 1px solid #4B5362;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 280px;
+    min-width: 280px;
+    max-width: 380px;
+  }
+  .card-img {
+    height: 160px;
+    border-bottom: 1px solid #4B5362;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-title-bg {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.07);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: absolute;
+  }
+  .card-dots { position: absolute; right: 8px; bottom: 8px; opacity: 0.15; }
+  .card-tags { display: flex; gap: 6px; padding: 8px; flex-wrap: wrap; border-bottom: 1px solid #4B5362; }
+  .card-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-name { font-size: 18px; font-weight: 700; color: #fff; }
+  .card-desc { font-size: 13px; color: #ABB2BF; line-height: 1.7; flex: 1; }
+  .card-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+
+  .view-all-wrap { display: flex; justify-content: flex-end; margin-bottom: 100px; }
+  .view-all-link { font-size: 14px; color: #ABB2BF; text-decoration: none; transition: color 0.2s; }
+  .view-all-link:hover { color: #fff; }
+
+  /* Skills */
+  .skills-row { display: flex; gap: 40px; margin-bottom: 100px; flex-wrap: wrap; align-items: flex-start; }
+  .skills-dots { flex: 0 0 auto; opacity: 0.3; margin-top: 8px; }
+  .skills-grid { display: flex; gap: 12px; flex-wrap: wrap; flex: 1; }
+  .skill-box { border: 1px solid #ABB2BF; min-width: 160px; }
+  .skill-label { border-bottom: 1px solid #ABB2BF; padding: 6px 10px; font-size: 14px; font-weight: 700; color: #fff; }
+  .skill-items { padding: 10px; display: flex; flex-direction: column; gap: 7px; }
+  .skill-item { font-size: 13px; color: #ABB2BF; display: flex; align-items: center; gap: 6px; }
+
+  /* About */
+  .about-row { display: flex; gap: 48px; margin-bottom: 100px; flex-wrap: wrap; }
+  .about-text { flex: 1; min-width: 280px; }
+  .about-para { font-size: 15px; color: #ABB2BF; line-height: 1.85; margin-bottom: 32px; }
+  .about-photo-wrap { flex: 0 0 280px; position: relative; }
+  .about-photo-img {
+    width: 280px;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  .about-photo-dots { position: absolute; top: 16px; left: -20px; opacity: 0.6; z-index: 0; }
+  .photo-line { height: 1px; background: #C778DD; width: 70%; margin-left: 15%; }
+
+  /* Contacts */
+  .contacts-row { display: flex; gap: 48px; margin-bottom: 80px; flex-wrap: wrap; align-items: flex-start; }
+  .contacts-desc { font-size: 15px; color: #ABB2BF; line-height: 1.7; max-width: 400px; flex: 1; }
+  .contact-card { border: 1px solid #ABB2BF; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; min-width: 240px; }
+  .contact-card-title { font-size: 14px; font-weight: 700; color: #fff; }
+  .contact-item { display: flex; align-items: center; gap: 10px; }
+  .contact-text { font-size: 13px; color: #ABB2BF; }
+</style>

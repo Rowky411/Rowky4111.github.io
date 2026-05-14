@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skills = [
+  { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "C++"] },
+  { label: "Frontend", items: ["React.js", "HTML5", "CSS3", "TailwindCSS"] },
+  { label: "Backend", items: ["NestJS", "Django", "PHP", "REST API"] },
+  { label: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "Qdrant"] },
+  { label: "AI & ML", items: ["Vector Embeddings", "Prompt Engineering", "Claude / MCP", "Agentic Dev"] },
+  { label: "DevOps", items: ["Git", "GitHub", "Docker", "Linux"] },
+  { label: "Testing", items: ["Playwright", "Postman", "JMeter", "API Automation"] },
+  { label: "Other Tools", items: ["Figma", "Canva", "LaTeX", "MS Office"] },
+];
+
+const experience = [
+  {
+    role: "Software Engineer",
+    company: "Info Inlet",
+    period: "August 2025 – April 2026",
+    location: "Dhaka, Bangladesh",
+    points: [
+      "Developing and maintaining full-stack web applications using NestJS and React",
+      "Contributing to system architecture decisions and API design for production services",
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: "B.Sc. in Computer Science and Engineering",
+    school: "United International University",
+    period: "January 2020 – November 2024",
+    location: "Dhaka, Bangladesh",
+    detail: "CGPA: 3.05 / 4.00",
+  },
+];
+
+const facts = [
+  "English (Fluent) & Bengali (Native)",
+  "Published IEEE researcher",
+  "Open-source contributor",
+  "AI & automation enthusiast",
+  "Based in Dhaka, Bangladesh",
+];
+---
+
+<Layout title="About Me — Jurayak Kader" activePage="about-me">
+  <div class="page-title">
+    <div class="page-title-heading">
+      <span class="slash">/</span><span class="slug">about-me</span>
+    </div>
+    <div class="subtitle">Who am i?</div>
+  </div>
+
+  <!-- Bio -->
+  <div class="bio-row">
+    <div class="bio-text">
+      <p class="bio-para">
+        Hello, i'm Jurayak!<br /><br />
+        I'm a software engineer based in Basabo, Dhaka, Bangladesh. I build full-stack web applications using modern technologies — particularly NestJS, React, and PostgreSQL.<br /><br />
+        I have a strong interest in AI integration and workflow automation. I've built platforms that leverage generative AI, vector embeddings, and agentic development patterns to create intelligent, scalable solutions.<br /><br />
+        Previously worked at <span class="accent">Info Inlet</span> as a Software Engineer (until April 2026), contributing to production services and system architecture.
+      </p>
+      <div class="bio-btns">
+        <a href="mailto:jurayakkader.uiu@gmail.com" class="btn">Contact me -&gt;</a>
+        <a href="https://github.com/Rowky411" target="_blank" rel="noopener" class="btn">Github &lt;~&gt;</a>
+      </div>
+    </div>
+    <div class="bio-photo-wrap">
+      <div class="bio-photo">
+        <img src="/1-removebg-preview.png" alt="Jurayak Kader" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+      </div>
+      <div class="bio-photo-dots">
+        <div class="dot-grid" style="grid-template-columns:repeat(3,6px);gap:10px;">
+          {Array.from({length:9}).map((_,i) => (
+            <div class="dot" style="width:6px;height:6px;background:#ABB2BF;"></div>
+          ))}
+        </div>
+      </div>
+      <div class="photo-line"></div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">experience</span>
+    <div class="line"></div>
+  </div>
+  <div class="exp-list">
+    {experience.map(e => (
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">{e.role}</span>
+            <span class="exp-company"> @ {e.company}</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">{e.period}</span>
+            <span class="exp-location">{e.location}</span>
+          </div>
+        </div>
+        <div class="exp-points">
+          {e.points.map((pt, i) => (
+            <div class="exp-point">
+              <span class="accent" style="flex-shrink:0;margin-top:2px;">&#9658;</span>
+              {pt}
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Education -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">education</span>
+    <div class="line"></div>
+  </div>
+  <div class="edu-list">
+    {education.map(e => (
+      <div class="edu-card">
+        <div class="edu-header">
+          <div>
+            <div class="edu-degree">{e.degree}</div>
+            <div class="edu-school">{e.school}</div>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-period">{e.period}</span>
+            <span class="exp-location">{e.location}</span>
+          </div>
+        </div>
+        <div class="edu-detail">
+          <span class="accent">&#9658;</span>{e.detail}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Skills -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">skills</span>
+    <div class="line"></div>
+  </div>
+  <div class="skills-grid">
+    {skills.map(s => (
+      <div class="skill-box">
+        <div class="skill-label">{s.label}</div>
+        <div class="skill-items">
+          {s.items.map(item => (
+            <div class="skill-item">
+              <span class="accent">&#9658;</span>{item}
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Quick Facts -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">quick-facts</span>
+    <div class="line"></div>
+  </div>
+  <div class="facts-list">
+    {facts.map(f => (
+      <div class="fact-tag">
+        <span class="accent">#</span>&nbsp;{f}
+      </div>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .accent { color: #C778DD; }
+
+  .page-title { margin-bottom: 48px; }
+  .page-title-heading { display: flex; align-items: baseline; }
+  .slash { font-size: 32px; font-weight: 700; color: #C778DD; line-height: 1; }
+  .slug { font-size: 32px; font-weight: 700; color: #fff; line-height: 1; }
+  .subtitle { font-size: 16px; color: #ABB2BF; margin-top: 8px; }
+
+  /* Bio */
+  .bio-row { display: flex; gap: 48px; margin-bottom: 80px; flex-wrap: wrap; align-items: flex-start; }
+  .bio-text { flex: 1; min-width: 280px; }
+  .bio-para { font-size: 15px; color: #ABB2BF; line-height: 1.9; margin-bottom: 24px; }
+  .bio-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .bio-photo-wrap { flex: 0 0 260px; position: relative; }
+  .bio-photo {
+    width: 260px; height: 360px;
+    background: #1F2227; border: 1px solid #4B5362;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-placeholder { font-size: 11px; color: #4B5362; font-style: italic; }
+  .bio-photo-dots { position: absolute; top: 20px; left: -20px; }
+  .photo-line { height: 1px; background: #C778DD; width: 70%; margin-left: 15%; }
+
+  /* Experience */
+  .exp-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 72px; }
+  .exp-card { border: 1px solid #4B5362; padding: 20px; }
+  .exp-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .exp-role { font-size: 18px; font-weight: 700; color: #fff; }
+  .exp-company { font-size: 14px; color: #C778DD; margin-left: 10px; }
+  .exp-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+  .exp-period { font-size: 12px; color: #4B5362; }
+  .exp-location { font-size: 12px; color: #4B5362; }
+  .exp-points { display: flex; flex-direction: column; gap: 6px; }
+  .exp-point { font-size: 13px; color: #ABB2BF; display: flex; gap: 8px; line-height: 1.7; }
+
+  /* Education */
+  .edu-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 72px; }
+  .edu-card { border: 1px solid #4B5362; padding: 20px; }
+  .edu-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .edu-degree { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .edu-school { font-size: 14px; color: #C778DD; }
+  .edu-detail { margin-top: 12px; font-size: 13px; color: #ABB2BF; display: flex; align-items: center; gap: 6px; }
+
+  /* Skills */
+  .skills-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
+  .skill-box { border: 1px solid #ABB2BF; min-width: 155px; }
+  .skill-label { border-bottom: 1px solid #ABB2BF; padding: 6px 10px; font-size: 13px; font-weight: 700; color: #fff; }
+  .skill-items { padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .skill-item { font-size: 12px; color: #ABB2BF; display: flex; gap: 6px; align-items: center; }
+
+  /* Facts */
+  .facts-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 72px; }
+  .fact-tag { border: 1px solid #ABB2BF; padding: 8px 12px; font-size: 13px; color: #fff; }
+</style>

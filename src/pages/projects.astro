@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const mainProjects = [
+  {
+    title: "Imagitar",
+    desc: "Engineered an AI-powered multimedia editing platform supporting image, video, and presentation workflows. Built a presentation editor using HTML5 canvas and integrated multiple AI image APIs for generation, editing, inpainting, logo creation, and background removal.",
+    tags: ["NestJS", "React", "PostgreSQL", "TypeScript", "Generative AI"],
+    color: "#1a1f2e",
+    date: "January 2026",
+    githubUrl: "",
+    liveUrl: "https://imagitar.com/",
+  },
+  {
+    title: "Fluxturn",
+    desc: "Contributed to an open-source AI workflow automation platform with a node-based visual editor. Designed the workflow execution engine using BullMQ, built 50+ third-party connectors, and implemented an AI orchestration layer with persistent memory.",
+    tags: ["NestJS", "React", "TailwindCSS", "PostgreSQL", "Redis", "Docker", "BullMQ"],
+    color: "#1f2a1a",
+    date: "December 2025",
+    githubUrl: "",
+    liveUrl: "https://fluxturn.com/",
+  },
+  {
+    title: "StreamTube",
+    desc: "Developed a full-featured video sharing platform using Django with RESTful APIs for video uploads, streaming, and user management. Utilized Django ORM for efficient database operations and customized the admin interface.",
+    tags: ["Python", "Django", "SQLite", "REST API", "HTML", "CSS", "Docker"],
+    color: "#2a1a1f",
+    date: "Jul–Sep 2024",
+    githubUrl: "https://github.com/Rowky411/StreamTube",
+    liveUrl: "",
+  },
+  {
+    title: "ELMS",
+    desc: "E-Learning Management System. Built an intuitive platform for managing courses, tracking attendance, and streamlining communication between educators and students, with role-based access control.",
+    tags: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
+    color: "#1f1a2a",
+    date: "August 2023",
+    githubUrl: "https://github.com/Rowky411/elms",
+    liveUrl: "",
+  },
+  {
+    title: "Collaborative-Team-Hub",
+    desc: "A full-stack monorepo app for team collaboration — workspaces, goals, kanban boards, announcements, analytics, and real-time updates.",
+    tags: ["Next.js 14", "Zustand", "Tailwind CSS", "Node.js", "Express", "Prisma", "PostgreSQL", "Socket.io", "JWT", "Cloudinary"],
+    color: "#1a2226",
+    date: "2025",
+    githubUrl: "",
+    liveUrl: "https://determined-hope-production-9d55.up.railway.app",
+  },
+];
+
+const research = [
+  {
+    title: "Comparative Analysis: Monolithic vs Microservice Architecture",
+    desc: "Led comprehensive load testing using Apache JMeter on web streaming applications, benchmarking up to 4,000 concurrent users. Published at IEEE ECCE 2025.",
+    tags: ["Apache JMeter", "Load Testing", "IEEE"],
+    date: "February 2025",
+    doi: "10.1109/ECCE64574.2025.11014023",
+  },
+];
+---
+
+<Layout title="Projects — Jurayak Kader" activePage="projects">
+  <div class="page-title">
+    <div class="page-title-heading">
+      <span class="slash">/</span><span class="slug">projects</span>
+    </div>
+    <div class="subtitle">Things i've built</div>
+  </div>
+
+  <!-- Complete Apps -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">complete-apps</span>
+    <div class="line"></div>
+  </div>
+  <div class="projects-grid">
+    {mainProjects.map(p => (
+      <div class="project-card">
+        <div class="card-img" style={`background:${p.color};`}>
+          <span class="card-title-bg">{p.title}</span>
+          <div class="card-dots">
+            <div class="dot-grid" style="grid-template-columns:repeat(4,4px);gap:6px;">
+              {Array.from({length:12}).map((_,i) => (
+                <div class="dot" style="width:4px;height:4px;background:#ABB2BF;"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div class="card-tags">
+          {p.tags.map(t => <span class="tag">{t}</span>)}
+        </div>
+        <div class="card-body">
+          <div class="card-header-row">
+            <span class="card-name">{p.title}</span>
+            <span class="card-date">{p.date}</span>
+          </div>
+          <div class="card-desc">{p.desc}</div>
+          <div class="card-actions">
+            {p.githubUrl && <a href={p.githubUrl} class="btn" target="_blank" rel="noopener">Github &lt;~&gt;</a>}
+            {p.liveUrl && <a href={p.liveUrl} class="btn" target="_blank" rel="noopener">Live |&gt;</a>}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Research -->
+  <div class="section-heading">
+    <span class="hash">#</span>
+    <span class="title">research</span>
+    <div class="line"></div>
+  </div>
+  <div class="research-grid">
+    {research.map(r => (
+      <div class="research-card">
+        <div class="card-tags">
+          {r.tags.map(t => <span class="tag">{t}</span>)}
+        </div>
+        <div class="research-title">{r.title}</div>
+        <div class="research-desc">{r.desc}</div>
+        <div class="research-doi">DOI: {r.doi}</div>
+        <div style="margin-top:4px;">
+          <a href={`https://doi.org/${r.doi}`} target="_blank" rel="noopener" class="btn">Read more -&gt;</a>
+        </div>
+      </div>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .page-title { margin-bottom: 48px; }
+  .page-title-heading { display: flex; align-items: baseline; }
+  .slash { font-size: 32px; font-weight: 700; color: #C778DD; line-height: 1; }
+  .slug { font-size: 32px; font-weight: 700; color: #fff; line-height: 1; }
+  .subtitle { font-size: 16px; color: #ABB2BF; margin-top: 8px; }
+
+  .projects-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 72px; align-items: flex-start; }
+  .project-card {
+    border: 1px solid #4B5362;
+    flex: 1 1 280px;
+    min-width: 280px;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-img {
+    height: 140px;
+    border-bottom: 1px solid #4B5362;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-title-bg {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.06);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: absolute;
+  }
+  .card-dots { position: absolute; right: 8px; bottom: 8px; opacity: 0.12; }
+  .card-tags { display: flex; gap: 6px; padding: 8px; flex-wrap: wrap; border-bottom: 1px solid #4B5362; }
+  .card-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-header-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .card-name { font-size: 18px; font-weight: 700; color: #fff; }
+  .card-date { font-size: 11px; color: #4B5362; }
+  .card-desc { font-size: 13px; color: #ABB2BF; line-height: 1.75; flex: 1; }
+  .card-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+
+  .research-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 72px; }
+  .research-card {
+    border: 1px solid #4B5362;
+    padding: 20px;
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .research-title { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; }
+  .research-desc { font-size: 13px; color: #ABB2BF; line-height: 1.7; }
+  .research-doi { font-size: 12px; color: #4B5362; font-style: italic; }
+</style>
